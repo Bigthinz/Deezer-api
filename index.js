@@ -12,6 +12,18 @@ app.use(cors());
 const API_PROXY_URL = ' https://cors.eu.org'
 const DEEZER_API_BASE_URL = 'https://api.deezer.com';
 
+
+app.get('/', async (req, res) => {
+  try {
+    const { q } = req.query;
+    // const response = await axios.get(`${API_PROXY_URL}${DEEZER_API_BASE_URL}/search?q=${q}`);
+    // const response = await axios.get(`${API_PROXY_URL}/${DEEZER_API_BASE_URL}/user/2529/playlists`)
+    res.send('<h1>API is working 🚀🚀🚀</h1>')
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+
 app.get('/api', async (req, res) => {
   try {
     const { q } = req.query;
